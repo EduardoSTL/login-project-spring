@@ -4,6 +4,7 @@ import com.eduardo.loginprojectspring.validation.IdentificadorRegex;
 import com.eduardo.loginprojectspring.validation.Requerido;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -36,6 +37,7 @@ public class Usuario {
 
     @NotNull
     @Past
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
 
     @NotNull
