@@ -9,6 +9,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
+    //clase que crea los objetos
     private Integer id;
     private String nombre;
     private String role;
