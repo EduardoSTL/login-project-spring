@@ -10,7 +10,9 @@ import java.util.List;
 
 @Data
 public class Usuario {
-
+    //Establecer los formatos requeridos que se guardaran en la base de datos
+    //no definimos un constructor ya que no mandamos los datos en un solo conjunto
+    //es decir que la info se envia uno por uno
     @IdentificadorRegex
     private String identificador;
     private String nombre;
@@ -19,6 +21,7 @@ public class Usuario {
     private String apellido;
 
     @NotBlank
+    //no puede quedar vacio y minimo un caracter
     @Size(min = 2, max = 8)
     private String username;
 

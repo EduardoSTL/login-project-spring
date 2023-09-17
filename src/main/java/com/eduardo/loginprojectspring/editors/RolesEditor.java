@@ -13,9 +13,11 @@ public class RolesEditor extends PropertyEditorSupport {
     @Autowired
     private RoleService service;
 
+    //valida el texto:
     @Override
     public void setAsText(String text) throws IllegalArgumentException{
         try {
+            //enviamos el id como texto y lo convertimos a int para que lo reciba la interfaz de RoleService
             Integer id = Integer.parseInt(text);
             setValue(service.obtenerPorId(id));
         } catch (NumberFormatException e){
