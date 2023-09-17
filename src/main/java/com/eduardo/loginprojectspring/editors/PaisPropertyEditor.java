@@ -3,12 +3,14 @@ package com.eduardo.loginprojectspring.editors;
 
 import com.eduardo.loginprojectspring.services.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.beans.PropertyEditorSupport;
 
 @Component
 public class PaisPropertyEditor extends PropertyEditorSupport {
+    //@Qualifier("")
     @Autowired
     private PaisService service;
 

@@ -103,34 +103,34 @@ public class FormController {
 
     //ruta de la url con la que inicia la API rest
     @GetMapping("/form")
-    public String form(Model model){
+    public String form(Model model) {
         Usuario usuario = new Usuario();
         usuario.setNombre("John");
         usuario.setApellido("Doe");
         usuario.setIdentificador("123.456.789-K");
         usuario.setHabilitar(true);
-        usuario.setValorSecreto("Algun valor secreto ****");
+        usuario.setValorSecreto("Algún valor secreto ****");
         usuario.setPais(new Pais(3, "CL", "Chile"));
-        usuario.setRoles(Arrays.asList(new Role(3, "Usuario", "ROLE_USER")));
+        usuario.setRoles(Arrays.asList(new Role(2, "Usuario", "ROLE_USER")));
 
         model.addAttribute("titulo", "Formulario usuarios");
         model.addAttribute("usuario", usuario);
         return "form";
     }
 
-    @PostMapping("/forms")
-    public String procesar(@Valid Usuario usuario, BindingResult result, Model model){
-        if (result.hasErrors()){
+    @PostMapping("/form")
+    public String procesar(@Valid Usuario usuario, BindingResult result, Model model) {
+        // validador.validate(usuario, result);
+        if (result.hasErrors()) {
             model.addAttribute("titulo", "Resultado form");
             return "form";
         }
         return "redirect:/ver";
     }
-
     @GetMapping("/ver")
-    public String ver(@SessionAttribute(name = "usuario", required = false)
-                          Usuario usuario, Model model, SessionStatus status){
-        if (usuario == null){
+    public String ver(@SessionAttribute(name="usuario", required = false) Usuario usuario, Model model,
+                      SessionStatus status) {
+        if(usuario == null) {
             return "redirect:/form";
         }
         model.addAttribute("titulo", "Resultado form");
