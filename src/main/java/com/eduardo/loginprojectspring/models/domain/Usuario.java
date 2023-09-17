@@ -4,7 +4,6 @@ import com.eduardo.loginprojectspring.validation.IdentificadorRegex;
 import com.eduardo.loginprojectspring.validation.Requerido;
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 public class Usuario {
 
     @IdentificadorRegex
-    private String indentificador;
+    private String identificador;
     private String nombre;
 
     @Requerido
